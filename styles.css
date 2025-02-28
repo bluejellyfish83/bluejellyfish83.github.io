@@ -38,12 +38,16 @@ p {
   height: 100%;
   color: #00ff00;
   font-size: 2rem;
-  white-space: nowrap;
-  animation: rain 3s linear infinite;
-  
-  /* Add varying transparency */
+  animation: rain 2s linear infinite;
   opacity: 0.1;
-  animation: rain 3s linear infinite, fade 3s linear infinite;
+  animation: rain 2s linear infinite, fade 2s linear infinite;
+}
+
+/* Create random length for the rain drops */
+.rain::before {
+  content: attr(data-content);
+  display: block;
+  animation: rain 2s linear infinite, fade 2s linear infinite;
 }
 
 @keyframes fade {
