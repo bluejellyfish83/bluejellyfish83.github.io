@@ -1,0 +1,26 @@
+/* Set the background to black and text to green */
+body {
+  background-color: black;
+  color: #00ff00; /* Matrix green */
+  font-family: 'Courier New', Courier, monospace; /* Monospace font */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.5rem;
+}
