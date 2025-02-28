@@ -14,6 +14,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  z-index: 1; /* Ensure content is above the rain */
 }
 
 h1 {
@@ -25,38 +26,6 @@ p {
   font-size: 1.5rem;
 }
 
-@keyframes rain {
-  from { transform: translateY(-100%); }
-  to { transform: translateY(100%); }
-}
-
-.rain {
-  position: absolute;
-  top: -100%;
-  left: 0;
-  width: 1em;
-  height: 100%;
-  color: #00ff00;
-  font-size: 2rem;
-  animation: rain 2s linear infinite;
-  opacity: 0.1;
-  animation: rain 2s linear infinite, fade 2s linear infinite;
-}
-
-/* Create random length for the rain drops */
-.rain::before {
-  content: attr(data-content);
-  display: block;
-  animation: rain 2s linear infinite, fade 2s linear infinite;
-}
-
-@keyframes fade {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-/* Container to hold all rain elements */
 .rain-container {
   position: absolute;
   top: 0;
@@ -64,12 +33,24 @@ p {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  z-index: 0; /* Ensure rain is below the content */
 }
 
-/* Add multiple rain elements */
-.rain-container div {
+.rain-drop {
   position: absolute;
   top: 0;
-  left: calc(100% * var(--i) / 100);
-  animation-duration: calc(2s + 2s * var(--i) / 100);
+  color: #00ff00;
+  font-size: 1.2rem;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
 }
