@@ -41,6 +41,8 @@ p {
   top: 0;
   color: #00ff00;
   font-size: 1.2rem;
+  line-height: 1.2rem; /* Ensure lines are close enough to look like a chain */
+  writing-mode: vertical-rl; /* Rotate the text for vertical effect */
   animation: fall linear infinite;
 }
 
