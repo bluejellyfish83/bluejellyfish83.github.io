@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const length = Math.floor(Math.random() * 10) + 5; // Random length between 5 and 15
     let chain = '';
     for (let i = 0; i < length; i++) {
-      chain += chars[Math.floor(Math.random() * chars.length)] + '\n'; // Add newline for vertical effect
+      chain += chars[Math.floor(Math.random() * chars.length)];
     }
     return chain;
   }
