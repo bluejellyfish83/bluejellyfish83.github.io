@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const rainContainer = document.querySelector('.rain-container');
-  const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' +
-    '日本語한글中文こんにちは안녕하세요你好' +
-    '\u3040-\u309F' + // Hiragana
-    '\u30A0-\u30FF' + // Katakana
-    '\u4E00-\u9FFF' + // CJK Unified Ideographs (Common and Old Hanzi)
-    '\uAC00-\uD7A3'; // Hangul Syllables
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789' +
+                'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん' + // Hiragana
+                'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン' + // Katakana
+                '一二三四五六七八九十百千万億兆' + // Chinese numbers
+                '你我他她它的了是'; // Common Chinese characters
 
   function createRainDrop() {
     const rainDrop = document.createElement('div');
@@ -25,8 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const length = Math.floor(Math.random() * 10) + 5; // Random length between 5 and 15
     let chain = '';
     for (let i = 0; i < length; i++) {
-      const randomCharCode = chars.charCodeAt(Math.floor(Math.random() * chars.length));
-      chain += String.fromCharCode(randomCharCode);
+      chain += chars.charAt(Math.floor(Math.random() * chars.length));
     }
     return chain;
   }
